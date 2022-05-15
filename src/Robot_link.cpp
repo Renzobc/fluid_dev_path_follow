@@ -336,7 +336,7 @@ namespace path_follow
             tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
             transform_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
             tf_publisher = std::make_shared<tf2_ros::TransformBroadcaster>(*this);
-            timer_ = this->create_wall_timer(1s, std::bind(&InitialPoseBroadcast::broadcast_timer_callback, this));
+            timer_ = this->create_wall_timer(250ms, std::bind(&InitialPoseBroadcast::broadcast_timer_callback, this));
         }
 
     private:
